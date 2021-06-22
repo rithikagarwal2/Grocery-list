@@ -1,0 +1,117 @@
+body {
+  font-family: sans-serif;
+}
+.tc {
+  width: 75px;
+}
+
+#add {
+  background-color: rgb(9, 129, 241); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 6px;
+}
+#edit {
+  background-color: rgb(9, 129, 241); /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 6px;
+}
+.container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.tab.tab-1 {
+  width: 500px;
+  color: rgb(22, 22, 27);
+  display: block;
+}
+#table {
+  width: 500px;
+  word-wrap: break-word;
+}
+#title {
+  margin-left: 140px;
+}
+td {
+  word-wrap: break-word;
+}
+
+.tab {
+  margin-left: 2px;
+}
+.tab-2 {
+  margin-left: 50px;
+}
+.tab-2 input {
+  display: block;
+  margin-bottom: 10px;
+}
+.tab.tab-2 {
+  color: white;
+  background-color: black;
+  width: 60%;
+  height: 300px;
+  align-items: center;
+  position: relative;
+  border-radius: 20px 20px;
+  float: left;
+}
+#inner-div {
+  position: absolute;
+  margin: 40px;
+}
+
+tr:hover {
+  background-color: white;
+  cursor: pointer;
+}
+table,
+th,
+td {
+  border: 5px solid white;
+  table-layout: fixed;
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 75%;
+  }
+  .tab.tab-2 {
+    width: 100%;
+
+    float: left;
+  }
+
+  #maindiv {
+    margin-left: 4px;
+  }
+  table,
+  th,
+  td {
+    border: 5px solid white;
+    table-layout: auto;
+  }
+  #table {
+    width: 200px;
+  }
+  #title {
+    margin-left: 50px;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+}

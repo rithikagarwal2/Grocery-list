@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grocery List</title>
+    <meta charset="windows-1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="tab tab-2" id="maindiv">
+        <div id="inner-div">
+          <h1>Add Items</h1>
+          Item:<input type="text" name="item" id="item" />
+
+          Quantity:<input type="number" name="qty" id="qty" />
+
+          <button id="add">
+            Add
+          </button>
+          <button id="edit">
+            Edit
+          </button>
+        </div>
+      </div>
+      <div class="tab tab-1">
+        <h1 style="color: black;" id="title">Grocery-List</h1>
+        <table id="table" border="1">
+          <tr>
+            <th class="tc">Item</th>
+
+            <th class="tc">quantity</th>
+            <th class="tc">Edit</th>
+            <th class="tc">Delete</th>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
