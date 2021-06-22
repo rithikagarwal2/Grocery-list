@@ -1,4 +1,4 @@
-import "./styles.css";
+
 var rIndex,
   table = document.getElementById("table");
 const add = document.getElementById("add");
