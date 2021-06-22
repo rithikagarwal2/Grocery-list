@@ -1,4 +1,5 @@
 
+
 var rIndex,
   table = document.getElementById("table");
 const add = document.getElementById("add");
@@ -7,7 +8,11 @@ const edit = document.getElementById("edit");
 var list = [];
 console.log(list);
 function renderlist() {
-  for (var i = 0; i < localStorage.length; i++) {
+  var rowCount = table.rows.length;
+for (var x=rowCount-1; x>0; x--) {
+   table.deleteRow(x);
+}
+  for (var i = localStorage.length-1; i >=0; i--) {
     const key = localStorage.key(i);
     if (key == "running" || key == "__test__") {
       continue;
@@ -16,14 +21,14 @@ function renderlist() {
     var val = parseInt(value);
 
     var newRow = table.insertRow(table.length),
-      cell1 = newRow.insertCell(0),
-      cell2 = newRow.insertCell(1),
-      cell3 = newRow.insertCell(2),
-      cell4 = newRow.insertCell(3),
+      ItemCell = newRow.insertCell(0),
+      QuantityCell = newRow.insertCell(1),
+      EditCell = newRow.insertCell(2),
+      DeleteCell = newRow.insertCell(3),
       edit = `<button style=" background-color: #4CAF50; /* Green */
         border: none;
         color: white;
-        padding: 16px 25px;
+        padding: 16px 30px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -33,18 +38,18 @@ function renderlist() {
       del = `<button style=" background-color: #4CAF50; /* Green */
         border: none;
         color: white;
-        padding: 15px 15px;
+        padding: 15px 25px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
         background-color:black;
         border-radius:5px;">Delete</button>`;
-    cell1.innerHTML = key;
+    ItemCell.innerHTML = key;
 
-    cell2.innerHTML = val;
-    cell3.innerHTML = edit;
-    cell4.innerHTML = del;
+    QuantityCell.innerHTML = val;
+    EditCell.innerHTML = edit;
+    DeleteCell.innerHTML = del;
     list.push([key, value, table.rows.length - 1]);
 
     // call the function to set the event to the new row
@@ -99,44 +104,17 @@ function addHtmlTableRow() {
         list[i][1] = upadte;
       }
     }
-    table.rows[finditem[2]].cells[1].innerHTML = upadte;
+    localStorage.setItem(item,upadte.toString());
+    //table.rows[finditem[2]].cells[1].innerHTML = upadte;
+    renderlist();
   } else {
     if (!checkEmptyInput()) {
-      var newRow = table.insertRow(table.length),
-        cell1 = newRow.insertCell(0),
-        cell2 = newRow.insertCell(1),
-        cell3 = newRow.insertCell(2),
-        cell4 = newRow.insertCell(3),
-        edit = `<button style=" background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 16px 30px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        background-color:rgb(9, 129, 241);
-        border-radius:5px;">Edit</button>`,
-        del = `<button style=" background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 15px 25px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        background-color:black;
-        border-radius:5px;">Delete</button>`;
-      cell1.innerHTML = item;
-
-      cell2.innerHTML = quantity;
-      cell3.innerHTML = edit;
-      cell4.innerHTML = del;
+     
       list.push([item, quantity, table.rows.length - 1]);
       localStorage.setItem(item, quantity.toString());
       // call the function to set the event to the new row
-
-      selectedRowToInput();
+       renderlist();
+      
     }
   }
 }
@@ -171,33 +149,7 @@ function editHtmlTbleSelectedRow() {
       alert("please click on edit button to edit");
     }
     if (table.rows[rIndex] != undefined) {
-      table.rows[rIndex].cells[0].innerHTML = item;
-
-      table.rows[rIndex].cells[1].innerHTML = qty;
-      table.rows[
-        rIndex
-      ].cells[2].innerHTML = `<button style=" background-color: #4CAF50; /* Green */
-      border: none;
-      color: white;
-      padding: 16px 30px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      background-color:rgb(9, 129, 241);
-      border-radius:5px;">Edit</button>`;
-      table.rows[
-        rIndex
-      ].cells[3].innerHTML = `<button style="background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 15px 25px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      background-color:black;
-      border-radius:5px;">Delete</button>`;
+      
       var n = list.length;
       for (var i = 0; i < n; i++) {
         if (list[i][0] == item) {
@@ -205,6 +157,7 @@ function editHtmlTbleSelectedRow() {
         }
       }
       localStorage.setItem(item, qty.toString());
+      renderlist();
     }
   }
 }
