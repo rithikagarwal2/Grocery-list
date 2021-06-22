@@ -74,8 +74,8 @@ function checkEmptyInput() {
   } else if (qty === "") {
     alert("Quantity Connot Be Empty");
     isEmpty = true;
-  } else if (parseInt(qty) < 0) {
-    alert("Quantity Connot Be Negative");
+  } else if (parseInt(qty) <= 0) {
+    alert("Quantity has to be positive");
     isEmpty = true;
   }
   return isEmpty;
