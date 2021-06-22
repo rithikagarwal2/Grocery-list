@@ -16,6 +16,11 @@ body {
   font-size: 16px;
   border-radius: 6px;
 }
+#add:hover{
+  padding-right: 25px;
+  background-color: rgb(107, 26, 236);
+  font-size: 25px;
+}
 #edit {
   background-color: rgb(9, 129, 241); /* Green */
   border: none;
@@ -26,6 +31,11 @@ body {
   display: inline-block;
   font-size: 16px;
   border-radius: 6px;
+}
+#edit:hover{
+  padding-right: 25px;
+  background-color: rgb(90, 24, 196);
+  font-size: 25px;
 }
 .container {
   overflow: hidden;
@@ -85,6 +95,7 @@ td {
   table-layout: fixed;
 }
 
+
 @media screen and (max-width: 480px) {
   html {
     font-size: 75%;
@@ -103,6 +114,7 @@ td {
   td {
     border: 5px solid white;
     table-layout: auto;
+    align-items: center;
   }
   #table {
     width: 200px;
@@ -115,3 +127,4 @@ td {
     flex-direction: column;
   }
 }
+
